@@ -1,7 +1,6 @@
 import 'package:get/get.dart';
 import 'package:team_project/src/core/controller/base_controller.dart';
 import 'package:team_project/src/config/app_routes.dart';
-import 'package:team_project/src/data/local_source/local_source.dart';
 
 class SplashController extends BaseController {
   @override
@@ -10,10 +9,18 @@ class SplashController extends BaseController {
     Future.delayed(
       const Duration(seconds: 2),
       () {
-        if (!LocalSource.getInstance().getIntroStatus()) {
-          Get.offNamed(AppRoutes.onboarding);
+        if (!localSource.hasProfile()) {
+          if (!localSource.getIntroStatus()) {
+            Get.offNamed(AppRoutes.onboarding);
+          } else {
+            Get.offNamed(AppRoutes.auth);
+          }
         } else {
-          Get.offNamed(AppRoutes.home);
+          if (!localSource.getIntroStatus()) {
+            Get.offNamed(AppRoutes.onboarding);
+          } else {
+            Get.offNamed(AppRoutes.home);
+          }
         }
       },
     );

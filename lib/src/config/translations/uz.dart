@@ -31,5 +31,15 @@ class Uz {
         'subjects': 'Fanlar',
         'topics': 'mavzular',
         'continue': 'Davom etish',
-      };
+        'login_message': 'STEM fanlarini innovatsion usul bilan o`rganing!',
+        'register': 'Ro`yxatdan o`tish',
+        'login_instead_text':'Ro`yxatdan o`tganmisiz? ',
+        'register_instead_text':'Yangi foydalanuvchimisiz? ',
+        'forgot_password':'Parolni unutdingizmi?',
+        'login':'Kirish',
+        'username':'Username',
+        'password':'Parol',
+        'first_name':'Ism',
+        'last_name':'Familiya',
+  };
 }

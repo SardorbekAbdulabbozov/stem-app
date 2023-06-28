@@ -31,5 +31,15 @@ class En {
         'subjects': 'Subjects',
         'topics': 'topics',
         'continue': 'Continue',
+        'login_message': 'Learn STEM subjects with innovative way!',
+        'register': 'Register',
+        'login_instead_text':'Already have an account? ',
+        'register_instead_text':'Don`t have an account? ',
+        'forgot_password':'Forgot password?',
+        'login':'Login',
+        'username':'Username',
+        'password':'Password',
+        'first_name':'First name',
+        'last_name':'Last name',
   };
 }

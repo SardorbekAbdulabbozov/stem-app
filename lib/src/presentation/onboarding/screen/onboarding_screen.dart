@@ -3,8 +3,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
-import 'package:team_project/src/config/app_routes.dart';
-import 'package:team_project/src/data/local_source/local_source.dart';
 import 'package:team_project/src/presentation/onboarding/controller/onboarding_controller.dart';
 import 'package:team_project/src/utils/app_colors.dart';
 import 'package:team_project/src/utils/app_text_styles.dart';
@@ -29,8 +27,8 @@ class OnboardingScreen extends StatelessWidget {
             actions: [
               TextButton(
                 onPressed: () {
-                  LocalSource.getInstance().setIntroStatus(true);
-                  Get.offNamed(AppRoutes.home);
+                  ctr.localSource.setIntroStatus(true);
+                  ctr.goToNextPage();
                 },
                 child: Text(
                   'skip'.tr,
@@ -105,8 +103,9 @@ class OnboardingScreen extends StatelessWidget {
                               scrollDirection: Axis.horizontal,
                               itemBuilder: (_, i) => CircleAvatar(
                                 radius: 4,
-                                backgroundColor:
-                                    i == ctr.sceneIndex ? AppColors.red : null,
+                                backgroundColor: i == ctr.sceneIndex
+                                    ? Colors.white
+                                    : AppColors.middleGrey,
                               ),
                               separatorBuilder: (_, i) =>
                                   const SizedBox(width: 8),
@@ -116,8 +115,8 @@ class OnboardingScreen extends StatelessWidget {
                         if (ctr.sceneIndex == 2)
                           TextButton(
                             onPressed: () {
-                              LocalSource.getInstance().setIntroStatus(true);
-                              Get.offNamed(AppRoutes.home);
+                              ctr.localSource.setIntroStatus(true);
+                              ctr.goToNextPage();
                             },
                             child: Text(
                               'continue'.tr,

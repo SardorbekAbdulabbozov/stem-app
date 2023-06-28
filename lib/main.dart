@@ -28,6 +28,22 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         scaffoldBackgroundColor: Colors.white,
+        inputDecorationTheme: const InputDecorationTheme(
+          fillColor: Colors.white,
+          filled: true,
+          errorBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.all(Radius.circular(12)),
+            borderSide: BorderSide(color: AppColors.red),
+          ),
+          focusedBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.all(Radius.circular(12)),
+            borderSide: BorderSide(color: AppColors.assets),
+          ),
+          enabledBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.all(Radius.circular(12)),
+            borderSide: BorderSide(color: Colors.white),
+          ),
+        ),
         appBarTheme: const AppBarTheme(
           elevation: 0,
           backgroundColor: Colors.white,

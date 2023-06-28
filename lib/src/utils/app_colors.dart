@@ -9,12 +9,17 @@ class AppColors{
 
   static const red = Color(0xFFFF4646);
   static const grey = Color(0xFFB7B7B7);
+  static const black = Color(0xFF333333);
+  static const neutralGrey = Color(0xFF858494);
+  static const neutralGreyShade1 = Color(0xFF838383);
   static const darkGrey = Color(0xFF727272);
   static const middleGrey = Color(0xFF858585);
   static const lightGrey = Color(0xFF999999);
   static const whiteShade1 = Color(0xFFE9E9E9);
   static const whiteShade2 = Color(0xFFFAFAFA);
   static const whiteShade3 = Color(0xFFF5F5F5);
+  static const whiteShade4 = Color(0xFFE6E6E6);
+  static const whiteShade5 = Color(0xFFE3E4E0);
 
   static const streakGradient1 = Color(0xFF1D4077);
   static const streakGradient2 = Color(0xFF6D80FA);

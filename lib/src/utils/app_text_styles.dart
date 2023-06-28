@@ -209,7 +209,7 @@ class AppTextStyles {
     color: Colors.white,
   );
 
-  static const topicScreenSubjectTitleTextStyle  = TextStyle(
+  static const topicScreenSubjectTitleTextStyle = TextStyle(
     fontFamily: 'Lato',
     fontSize: 20,
     fontWeight: FontWeight.w500,
@@ -242,5 +242,63 @@ class AppTextStyles {
     fontSize: 56,
     fontWeight: FontWeight.w700,
     color: Colors.white,
+    letterSpacing: 2,
+  );
+
+  static const logoTextSmallStyle = TextStyle(
+    fontFamily: 'Lato',
+    fontSize: 48,
+    fontWeight: FontWeight.w700,
+    color: Colors.white,
+    letterSpacing: 2,
+  );
+
+  static const authMessageStyle = TextStyle(
+    fontFamily: 'Lato',
+    fontSize: 24,
+    fontWeight: FontWeight.w700,
+    color: AppColors.filledIconColor,
+  );
+
+  static const registerButtonStyle = TextStyle(
+    fontFamily: 'Lato',
+    fontSize: 16,
+    fontWeight: FontWeight.w700,
+    color: Colors.white,
+  );
+
+  static const loginInsteadTextStyle = TextStyle(
+    fontFamily: 'Lato',
+    fontSize: 16,
+    fontWeight: FontWeight.w400,
+    color: AppColors.neutralGrey,
+  );
+
+  static const registerInsteadTextStyle = TextStyle(
+    fontFamily: 'Lato',
+    fontSize: 12,
+    fontWeight: FontWeight.w700,
+    color: AppColors.black,
+  );
+
+  static const loginTextStyle = TextStyle(
+    fontFamily: 'Lato',
+    fontSize: 16,
+    fontWeight: FontWeight.w600,
+    color: AppColors.assets,
+  );
+
+  static const authHintTextStyle = TextStyle(
+    fontFamily: 'Lato',
+    fontSize: 14,
+    fontWeight: FontWeight.w400,
+    color: AppColors.whiteShade5,
+  );
+
+  static const forgotPasswordTextStyle = TextStyle(
+    fontFamily: 'Lato',
+    fontSize: 12,
+    fontWeight: FontWeight.w700,
+    color: AppColors.neutralGreyShade1,
   );
 }
