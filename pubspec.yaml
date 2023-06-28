@@ -1,0 +1,54 @@
+name: team_project
+description: STEM
+
+publish_to: 'none'
+
+version: 1.0.0+1
+
+environment:
+  sdk: '>=3.0.1 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  cupertino_icons: ^1.0.2
+  get: ^4.6.5
+  get_storage: ^2.1.1
+  flutter_svg: ^2.0.6
+  model_viewer_plus: ^1.5.0
+  keyboard_dismisser: ^3.0.0
+  dio: ^5.2.1+1
+  retrofit: ^4.0.1
+  cached_network_image: ^3.2.3
+  dio_retry_plus: ^1.0.3
+  connectivity_plus: ^4.0.1
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+  flutter_lints: ^2.0.0
+  retrofit_generator: any
+  build_runner: ^2.4.5
+
+flutter:
+
+  uses-material-design: true
+
+  assets:
+    - assets/
+    - assets/svg/
+    - assets/3d/
+    - assets/jpg/
+
+  fonts:
+    - family: Lato
+      fonts:
+        - asset: fonts/Lato-Regular.ttf
+        - asset: fonts/Lato-Light.ttf
+          weight: 300
+        - asset: fonts/Lato-Bold.ttf
+          weight: 700
+        - asset: fonts/Lato-Black.ttf
+          weight: 900
