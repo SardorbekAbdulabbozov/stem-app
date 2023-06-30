@@ -31,9 +31,19 @@ class MyApp extends StatelessWidget {
         inputDecorationTheme: const InputDecorationTheme(
           fillColor: Colors.white,
           filled: true,
+          errorStyle: AppTextStyles.errorTextStyle,
+          errorMaxLines: 2,
           errorBorder: OutlineInputBorder(
             borderRadius: BorderRadius.all(Radius.circular(12)),
             borderSide: BorderSide(color: AppColors.red),
+          ),
+          focusedErrorBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.all(Radius.circular(12)),
+            borderSide: BorderSide(color: AppColors.red),
+          ),
+          border: OutlineInputBorder(
+            borderRadius: BorderRadius.all(Radius.circular(12)),
+            borderSide: BorderSide(color: AppColors.assets),
           ),
           focusedBorder: OutlineInputBorder(
             borderRadius: BorderRadius.all(Radius.circular(12)),

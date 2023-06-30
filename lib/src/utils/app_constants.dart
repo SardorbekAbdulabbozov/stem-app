@@ -17,7 +17,10 @@ class AppConstants {
 
   static const baseURL = 'https://stem-production.up.railway.app/api/v1/';
 
-  static const profile = 'profile';
+  static const hasProfile = 'hasProfile';
+  static const firstName = 'firstName';
+  static const lastName = 'lastName';
+  static const username = 'username';
   static const introStatus = 'introStatus';
 }
 

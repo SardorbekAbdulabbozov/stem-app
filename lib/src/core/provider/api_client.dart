@@ -3,8 +3,8 @@
 import 'package:dio/dio.dart';
 import 'package:dio_retry_plus/dio_retry_plus.dart';
 import 'package:retrofit/retrofit.dart';
-import 'package:team_project/src/data/network_models/Login_request.dart';
-import 'package:team_project/src/data/network_models/Register_request.dart';
+import 'package:team_project/src/data/network_models/login_request.dart';
+import 'package:team_project/src/data/network_models/register_request.dart';
 import 'package:team_project/src/data/network_models/auth_response.dart';
 import 'package:team_project/src/utils/app_constants.dart';
 

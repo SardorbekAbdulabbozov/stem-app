@@ -41,9 +41,9 @@ class HomeSection extends StatelessWidget {
                       text: TextSpan(
                         text: '${'hello'.tr}\n',
                         style: AppTextStyles.helloCardTextStyle,
-                        children: const [
+                        children: [
                           TextSpan(
-                            text: 'Sardorbek Abdulabbozov',
+                            text: '${ctr.localSource.getUserDetails().firstName} ${ctr.localSource.getUserDetails().lastName}',
                             style: AppTextStyles.helloCardUsernameTextStyle,
                           ),
                         ],

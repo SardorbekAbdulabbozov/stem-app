@@ -295,10 +295,45 @@ class AppTextStyles {
     color: AppColors.whiteShade5,
   );
 
+  static const errorTextStyle = TextStyle(
+    fontFamily: 'Lato',
+    fontSize: 14,
+    fontWeight: FontWeight.w400,
+    color: AppColors.red,
+  );
+
   static const forgotPasswordTextStyle = TextStyle(
     fontFamily: 'Lato',
     fontSize: 12,
     fontWeight: FontWeight.w700,
     color: AppColors.neutralGreyShade1,
+  );
+
+  static const userFullNameProfile = TextStyle(
+    fontSize: 22,
+    fontFamily: 'Lato',
+    fontWeight: FontWeight.w700,
+    color: AppColors.filledIconColor,
+  );
+
+  static const usernameProfile = TextStyle(
+    fontSize: 16,
+    fontFamily: 'Lato',
+    fontWeight: FontWeight.w700,
+    color: AppColors.neutralGrey,
+  );
+
+  static const profileMenuItemTextStyle = TextStyle(
+    fontSize: 16,
+    fontFamily: 'Lato',
+    fontWeight: FontWeight.w400,
+    color: AppColors.filledIconColor,
+  );
+
+  static const versionTextStyle = TextStyle(
+    fontSize: 14,
+    fontFamily: 'Lato',
+    fontWeight: FontWeight.w400,
+    color: AppColors.filledIconColor,
   );
 }

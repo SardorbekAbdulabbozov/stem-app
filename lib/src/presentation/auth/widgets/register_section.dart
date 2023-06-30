@@ -17,7 +17,7 @@ class RegisterSection extends StatelessWidget {
   Widget build(BuildContext context) {
     return KeyboardDismisser(
       child: Scaffold(
-        resizeToAvoidBottomInset: false,
+        resizeToAvoidBottomInset: true,
         appBar: AppBar(
           toolbarHeight: 0,
           systemOverlayStyle: const SystemUiOverlayStyle(
@@ -81,96 +81,182 @@ class RegisterSection extends StatelessWidget {
                 ),
                 padding: const EdgeInsets.all(28),
                 width: Get.width - 32,
-                child: Column(
-                  children: [
-                    Text(
-                      'register'.tr.toUpperCase(),
-                      style: AppTextStyles.registerButtonStyle.copyWith(
-                        fontSize: 26,
-                        color: AppColors.filledIconColor,
-                      ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.only(top: 36, bottom: 16),
-                      child: TextField(
-                        cursorColor: AppColors.assets,
-                        decoration: InputDecoration(
-                          hintText: 'first_name'.tr,
-                          hintStyle: AppTextStyles.authHintTextStyle,
+                child: Form(
+                  key: controller.formKeyRegister,
+                  child: Column(
+                    children: [
+                      Text(
+                        'register'.tr.toUpperCase(),
+                        style: AppTextStyles.registerButtonStyle.copyWith(
+                          fontSize: 26,
+                          color: AppColors.filledIconColor,
                         ),
                       ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.only(bottom: 16),
-                      child: TextField(
-                        cursorColor: AppColors.assets,
-                        decoration: InputDecoration(
-                          hintText: 'last_name'.tr,
-                          hintStyle: AppTextStyles.authHintTextStyle,
-                        ),
-                      ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.only(bottom: 16),
-                      child: TextField(
-                        cursorColor: AppColors.assets,
-                        decoration: InputDecoration(
-                          hintText: 'username'.tr,
-                          hintStyle: AppTextStyles.authHintTextStyle,
-                        ),
-                      ),
-                    ),
-                    TextField(
-                      cursorColor: AppColors.assets,
-                      decoration: InputDecoration(
-                        hintText: 'password'.tr,
-                        hintStyle: AppTextStyles.authHintTextStyle,
-                      ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.only(top: 48, bottom: 16),
-                      child: SizedBox(
-                        width: Get.width,
-                        height: 56,
-                        child: ElevatedButton(
-                          onPressed: () {},
-                          style: ButtonStyle(
-                            backgroundColor: MaterialStateProperty.all<Color>(
-                                AppColors.assets),
-                            shape: MaterialStateProperty.all<OutlinedBorder>(
-                              RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(12),
-                              ),
-                            ),
-                          ),
-                          child: Text(
-                            'register'.tr,
-                            style: AppTextStyles.registerButtonStyle,
+                      Padding(
+                        padding: const EdgeInsets.only(top: 36, bottom: 16),
+                        child: TextFormField(
+                          controller: controller.firstNameController,
+                          validator: (input) {
+                            if ((input ?? '').isEmpty) {
+                              return 'first_name_empty_error'.tr;
+                            } else if ((input ?? '').length < 2 ||
+                                (input ?? '').length > 15) {
+                              return 'first_name_length'.tr;
+                            } else {
+                              return null;
+                            }
+                          },
+                          inputFormatters: [
+                            FilteringTextInputFormatter.allow(
+                                RegExp(r'[A-Za-z]')),
+                          ],
+                          onSaved: (firstName) {
+                            controller.firstName = firstName ?? '';
+                          },
+                          cursorColor: AppColors.assets,
+                          decoration: InputDecoration(
+                            hintText: 'first_name'.tr,
+                            hintStyle: AppTextStyles.authHintTextStyle,
                           ),
                         ),
                       ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.only(top: 16),
-                      child: RichText(
-                        text: TextSpan(
-                          text: 'login_instead_text'.tr,
-                          style: AppTextStyles.registerInsteadTextStyle,
-                          children: [
-                            TextSpan(
-                              text: 'login'.tr,
-                              style: AppTextStyles.registerInsteadTextStyle
-                                  .copyWith(color: AppColors.assets),
-                              recognizer: TapGestureRecognizer()
-                                ..onTap = () {
-                                  controller.changeAuthMode(isRegister: false);
-                                },
+                      Padding(
+                        padding: const EdgeInsets.only(bottom: 16),
+                        child: TextFormField(
+                          controller: controller.lastNameController,
+                          validator: (input) {
+                            if ((input ?? '').isEmpty) {
+                              return 'last_name_empty_error'.tr;
+                            } else if ((input ?? '').length < 2 ||
+                                (input ?? '').length > 15) {
+                              return 'last_name_length'.tr;
+                            } else {
+                              return null;
+                            }
+                          },
+                          inputFormatters: [
+                            FilteringTextInputFormatter.allow(
+                              RegExp(r'[A-Za-z]'),
                             ),
                           ],
+                          onSaved: (lastName) {
+                            controller.lastName = lastName ?? '';
+                          },
+                          cursorColor: AppColors.assets,
+                          decoration: InputDecoration(
+                            hintText: 'last_name'.tr,
+                            hintStyle: AppTextStyles.authHintTextStyle,
+                          ),
                         ),
                       ),
-                    )
-                  ],
+                      Padding(
+                        padding: const EdgeInsets.only(bottom: 16),
+                        child: TextFormField(
+                          controller: controller.usernameController,
+                          cursorColor: AppColors.assets,
+                          validator: (input) {
+                            if ((input ?? '').isEmpty) {
+                              return 'username_empty_error'.tr;
+                            } else {
+                              return null;
+                            }
+                          },
+                          inputFormatters: [
+                            FilteringTextInputFormatter.allow(
+                              RegExp(r'\w'),
+                            ),
+                          ],
+                          onSaved: (username) {
+                            controller.username = username ?? '';
+                          },
+                          decoration: InputDecoration(
+                            hintText: 'username'.tr,
+                            hintStyle: AppTextStyles.authHintTextStyle,
+                          ),
+                        ),
+                      ),
+                      TextFormField(
+                        controller: controller.passwordController,
+                        cursorColor: AppColors.assets,
+                        validator: (input) {
+                          if ((input ?? '').isEmpty) {
+                            return 'password_empty_error'.tr;
+                          } else if ((input ?? '').length < 8) {
+                            return 'password_length'.tr;
+                          } else if (!controller.regExpForPassword
+                              .hasMatch(input ?? '')) {
+                            return 'password_requirement'.tr;
+                          } else {
+                            return null;
+                          }
+                        },
+                        onSaved: (password) {
+                          controller.password = password ?? '';
+                        },
+                        obscureText: !controller.showPassword,
+                        decoration: InputDecoration(
+                          hintText: 'password'.tr,
+                          hintStyle: AppTextStyles.authHintTextStyle,
+                          suffixIcon: IconButton(
+                            onPressed: controller.changePasswordVisibility,
+                            icon: Icon(
+                              controller.showPassword
+                                  ? Icons.visibility_off_rounded
+                                  : Icons.visibility_rounded,
+                              color: AppColors.assets,
+                            ),
+                          ),
+                        ),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.only(top: 48, bottom: 16),
+                        child: SizedBox(
+                          width: Get.width,
+                          height: 56,
+                          child: ElevatedButton(
+                            onPressed: () async {
+                              await controller.register();
+                            },
+                            style: ButtonStyle(
+                              backgroundColor: MaterialStateProperty.all<Color>(
+                                  AppColors.assets),
+                              shape: MaterialStateProperty.all<OutlinedBorder>(
+                                RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(12),
+                                ),
+                              ),
+                            ),
+                            child: Text(
+                              'register'.tr,
+                              style: AppTextStyles.registerButtonStyle,
+                            ),
+                          ),
+                        ),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.only(top: 16),
+                        child: RichText(
+                          text: TextSpan(
+                            text: 'login_instead_text'.tr,
+                            style: AppTextStyles.registerInsteadTextStyle,
+                            children: [
+                              TextSpan(
+                                text: 'login'.tr,
+                                style: AppTextStyles.registerInsteadTextStyle
+                                    .copyWith(color: AppColors.assets),
+                                recognizer: TapGestureRecognizer()
+                                  ..onTap = () {
+                                    controller.changeAuthMode(
+                                      isRegister: false,
+                                    );
+                                  },
+                              ),
+                            ],
+                          ),
+                        ),
+                      )
+                    ],
+                  ),
                 ),
               ),
             ],
