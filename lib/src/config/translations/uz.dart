@@ -65,5 +65,6 @@ class Uz {
         'forbidden': 'Cheklangan, avtorizatsiya ma`lumotlari yetarli emas :(',
         'not_found': 'Hech narsa topilmadi :(',
         'connection_timeout': 'Server bilan bog`lanishda muammo yuzaga keldi :(',
+        'chatbot_intro_message': 'Salom, bu sun`iy intellekt bilan integratsiyalashtirilgan chatbot. Siz ushbu darsga oid har qanday savolni berishingiz mumkin.',
   };
 }

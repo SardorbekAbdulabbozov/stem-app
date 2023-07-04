@@ -8,6 +8,7 @@ class AppColors{
   static const background = Color(0xFFFCFCFC);
 
   static const red = Color(0xFFFF4646);
+  static const green = Color(0xFF0EB100);
   static const grey = Color(0xFFB7B7B7);
   static const black = Color(0xFF333333);
   static const neutralGrey = Color(0xFF858494);
@@ -20,6 +21,7 @@ class AppColors{
   static const whiteShade3 = Color(0xFFF5F5F5);
   static const whiteShade4 = Color(0xFFE6E6E6);
   static const whiteShade5 = Color(0xFFE3E4E0);
+  static const whiteShade6 = Color(0xFFD4D4D4);
 
   static const streakGradient1 = Color(0xFF1D4077);
   static const streakGradient2 = Color(0xFF6D80FA);
@@ -34,7 +36,13 @@ class AppColors{
   static const rankingIndicatorProfile = Color(0xFF8380FF);
   static const filledIconColor = Color(0xFF28303F);
 
-  // static const secondary1 = Color(0xFF8B8F92);
+  static const chatbotIconColor1 = Color(0xFF192126);
+  static const chatbotIconColor2 = Color(0xFFFF725E);
+
+  static const gradient1 = Color(0xFF0063FF);
+  static const gradient2 = Color(0xFF335555);
+
+// static const secondary1 = Color(0xFF8B8F92);
   // static const secondary2 = Color(0xFF5E6468);
   // static const secondary3 = Color(0xFF384046);
   // static const secondary4 = Color(0xFFA48AED);

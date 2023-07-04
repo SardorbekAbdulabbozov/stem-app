@@ -21,6 +21,7 @@ class AppConstants {
   static const firstName = 'firstName';
   static const lastName = 'lastName';
   static const username = 'username';
+  static const token = 'token';
   static const introStatus = 'introStatus';
 }
 

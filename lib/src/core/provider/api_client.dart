@@ -3,6 +3,7 @@
 import 'package:dio/dio.dart';
 import 'package:dio_retry_plus/dio_retry_plus.dart';
 import 'package:retrofit/retrofit.dart';
+import 'package:team_project/src/data/network_models/all_subjects_response.dart';
 import 'package:team_project/src/data/network_models/login_request.dart';
 import 'package:team_project/src/data/network_models/register_request.dart';
 import 'package:team_project/src/data/network_models/auth_response.dart';
@@ -60,6 +61,9 @@ abstract class ApiClient {
 
   @POST("auth/authenticate")
   Future<AuthResponse> login(@Body() LoginRequest request);
+
+  @GET("subject")
+  Future<AllSubjectsResponse> getAllSubjects();
 }
 /*flutter pub run build_runner build --delete-conflicting-outputs*/
 /*flutter pub run build_runner watch --delete-conflicting-outputs*/

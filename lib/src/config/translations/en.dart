@@ -63,5 +63,6 @@ class En {
         'forbidden': 'Forbidden :(',
         'not_found': 'Not Found :(',
         'connection_timeout': 'Connection Timeout :(',
+        'chatbot_intro_message': 'Hi, this is a chatbot integrated with AI. You can ask any question related to this lesson, Let`s chat',
       };
 }

@@ -30,6 +30,7 @@ class AuthRepository extends BaseRepository {
           firstName: firstName,
           lastName: lastName,
           username: username,
+          token: result.token ?? '',
         ),
       );
     } else {}
@@ -53,6 +54,7 @@ class AuthRepository extends BaseRepository {
           firstName: result.firstName ?? '',
           lastName: result.lastName ?? '',
           username: username,
+          token: result.token ?? '',
         ),
       );
     } else {}

@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 import 'package:team_project/src/core/controller/base_controller.dart';
 import 'package:team_project/src/data/models/user_model.dart';
@@ -18,6 +19,7 @@ class ProfileController extends BaseController {
   void onInit() {
     super.onInit();
     user = localSource.getUserDetails();
+    debugPrint('#### ${user.token}');
   }
 }
 

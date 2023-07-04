@@ -31,6 +31,7 @@ class LocalSource {
     await _localSource.write(AppConstants.firstName, details.firstName);
     await _localSource.write(AppConstants.lastName, details.lastName);
     await _localSource.write(AppConstants.username, details.username);
+    await _localSource.write(AppConstants.token, details.token);
     await _localSource.write(AppConstants.hasProfile, true);
   }
 
@@ -38,11 +39,13 @@ class LocalSource {
     String fName = _localSource.read<String>(AppConstants.firstName) ?? '';
     String lName = _localSource.read<String>(AppConstants.lastName) ?? '';
     String uName = _localSource.read<String>(AppConstants.username) ?? '';
+    String token = _localSource.read<String>(AppConstants.token) ?? '';
 
     return UserModel(
       firstName: fName,
       lastName: lName,
       username: uName,
+      token: token,
     );
   }
 
@@ -55,6 +58,6 @@ class LocalSource {
     await _localSource.remove(AppConstants.firstName);
     await _localSource.remove(AppConstants.lastName);
     await _localSource.remove(AppConstants.username);
-    await _localSource.remove(AppConstants.introStatus);
+    // await _localSource.remove(AppConstants.introStatus);
   }
 }

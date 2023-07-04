@@ -82,28 +82,3 @@ class HomeScreen extends StatelessWidget {
     );
   }
 }
-
-/*ModelViewer(
-              src: 'assets/${ctr.objects[4]}.glb',
-              ar: true,
-              autoPlay: true,
-              autoRotate: true,
-              cameraControls: true,
-            )*/
-
-/*              SizedBox(
-                height: 100,
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
-                  children: [
-                    ElevatedButton(
-                      onPressed: () => ctr.changeIndex(false),
-                      child: const Icon(Icons.arrow_back_ios_rounded),
-                    ),
-                    ElevatedButton(
-                      onPressed: () => ctr.changeIndex(true),
-                      child: const Icon(Icons.arrow_forward_ios_rounded),
-                    ),
-                  ],
-                ),
-              )*/

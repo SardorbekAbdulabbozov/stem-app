@@ -336,4 +336,103 @@ class AppTextStyles {
     fontWeight: FontWeight.w400,
     color: AppColors.filledIconColor,
   );
+
+  static const topicBriefTextStyle = TextStyle(
+    fontSize: 12,
+    fontFamily: 'Lato',
+    fontWeight: FontWeight.w400,
+    color: AppColors.filledIconColor,
+  );
+
+  static const lessonTextStyle = TextStyle(
+    fontSize: 16,
+    fontFamily: 'Lato',
+    fontWeight: FontWeight.w400,
+    color: AppColors.filledIconColor,
+    height: 1.5,
+  );
+
+  static const chatbotIntroTextStyle = TextStyle(
+    fontSize: 16,
+    fontFamily: 'Lato',
+    fontWeight: FontWeight.w400,
+    color: AppColors.filledIconColor,
+  );
+
+  static const chatbotMessageTextStyle = TextStyle(
+    fontSize: 14,
+    fontFamily: 'Lato',
+    fontWeight: FontWeight.w500,
+    color: Colors.white,
+  );
+
+  static const quizQuestionTextStyle = TextStyle(
+    fontSize: 16,
+    fontFamily: 'Lato',
+    fontWeight: FontWeight.w700,
+    color: AppColors.filledIconColor,
+  );
+
+  static const quizIndexTextStyle = TextStyle(
+    fontSize: 24,
+    fontFamily: 'Lato',
+    fontWeight: FontWeight.w900,
+    color: Colors.white,
+  );
+
+  static const submitTextStyle = TextStyle(
+    fontSize: 22,
+    fontFamily: 'Lato',
+    fontWeight: FontWeight.w700,
+    color: AppColors.assets,
+  );
+
+  static const optionTextStyle = TextStyle(
+    fontSize: 14,
+    fontFamily: 'Lato',
+    fontWeight: FontWeight.w700,
+    color: AppColors.filledIconColor,
+  );
+
+  static const goodJobTextStyle = TextStyle(
+    fontSize: 22,
+    fontFamily: 'Lato',
+    fontWeight: FontWeight.w700,
+    color: AppColors.filledIconColor,
+  );
+
+  static const resultTextStyle = TextStyle(
+    fontSize: 17,
+    fontFamily: 'Lato',
+    fontWeight: FontWeight.normal,
+    color: AppColors.filledIconColor,
+  );
+
+  static const bonusTextStyle = TextStyle(
+    fontSize: 20,
+    fontFamily: 'Lato',
+    fontWeight: FontWeight.normal,
+    color: AppColors.filledIconColor,
+  );
+
+  static const answerIndexTextStyle = TextStyle(
+    fontSize: 22,
+    fontFamily: 'Lato',
+    fontWeight: FontWeight.w700,
+    color: AppColors.filledIconColor,
+  );
+
+  static const answerDetails1TextStyle = TextStyle(
+    fontSize: 18,
+    fontFamily: 'Lato',
+    fontWeight: FontWeight.w700,
+    color: AppColors.lightGrey,
+  );
+
+  static const answerDetails2TextStyle = TextStyle(
+    fontSize: 20,
+    fontFamily: 'Lato',
+    fontWeight: FontWeight.w700,
+    color: AppColors.filledIconColor,
+  );
 }

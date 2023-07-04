@@ -231,17 +231,6 @@ class MyLearningScreen extends StatelessWidget {
                     ),
                   ),
                 ),
-                /*SizedBox(
-                  height: 500,
-                  width: Get.width,
-                  child: ModelViewer(
-                    src: 'assets/3d/Flexing_arm.glb',
-                    ar: true,
-                    autoPlay: true,
-                    autoRotate: true,
-                    cameraControls: true,
-                  ),
-                )*/
               ],
             ),
           ),
