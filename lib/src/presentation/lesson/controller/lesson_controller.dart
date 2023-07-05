@@ -36,7 +36,7 @@ class LessonController extends BaseController {
   }
 
   List<ChatMessage> message = List.generate(
-    7,
+    0,
     (index) => ChatMessage(
       sender: index % 2 == 0 ? 'you' : 'bot',
       time:
