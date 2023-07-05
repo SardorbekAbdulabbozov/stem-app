@@ -167,7 +167,7 @@ class Chatbot extends StatelessWidget {
                 Expanded(
                   child: TextField(
                     decoration: InputDecoration(
-                      hintText: 'ask_a_question'.tr,
+                      hintText: 'Savolingizni yozing'.tr,
                       border: const OutlineInputBorder(
                         borderRadius: BorderRadius.only(
                           topLeft: Radius.circular(16),
