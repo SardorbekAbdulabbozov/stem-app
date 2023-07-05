@@ -1,7 +1,5 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-// ignore_for_file: prefer_const_declarations
-
 part of 'api_client.dart';
 
 // **************************************************************************
@@ -15,7 +13,7 @@ class _ApiClient implements ApiClient {
     this._dio, {
     this.baseUrl,
   }) {
-    baseUrl ??= 'https://stem-production.up.railway.app/api/v1/';
+    baseUrl ??= 'http://isnodir.jprq.live:80/api/v1/';
   }
 
   final Dio _dio;
@@ -79,20 +77,21 @@ class _ApiClient implements ApiClient {
   }
 
   @override
-  Future<AllSubjectsResponse> getAllSubjects() async {
+  Future<List<AllSubjectsResponse>> getAllSubjects(dynamic token) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
-    final _headers = <String, dynamic>{};
+    final _headers = <String, dynamic>{r'Authorization': token};
+    _headers.removeWhere((k, v) => v == null);
     final Map<String, dynamic>? _data = null;
-    final _result = await _dio.fetch<Map<String, dynamic>>(
-        _setStreamType<AllSubjectsResponse>(Options(
+    final _result = await _dio
+        .fetch<List<dynamic>>(_setStreamType<List<AllSubjectsResponse>>(Options(
       method: 'GET',
       headers: _headers,
       extra: _extra,
     )
             .compose(
               _dio.options,
-              'subject',
+              'subject/list',
               queryParameters: queryParameters,
               data: _data,
             )
@@ -101,7 +100,10 @@ class _ApiClient implements ApiClient {
               _dio.options.baseUrl,
               baseUrl,
             ))));
-    final value = AllSubjectsResponse.fromJson(_result.data!);
+    var value = _result.data!
+        .map((dynamic i) =>
+            AllSubjectsResponse.fromJson(i as Map<String, dynamic>))
+        .toList();
     return value;
   }
 

@@ -1,3 +1,4 @@
+import 'package:flutter/material.dart';
 import 'package:team_project/src/core/provider/api_client.dart';
 import 'package:team_project/src/core/provider/base_repository.dart';
 import 'package:team_project/src/data/models/user_model.dart';
@@ -33,7 +34,9 @@ class AuthRepository extends BaseRepository {
           token: result.token ?? '',
         ),
       );
-    } else {}
+    } else {
+      debugPrint('### ERROR ### : $result');
+    }
   }
 
   Future<void> login(
@@ -57,6 +60,8 @@ class AuthRepository extends BaseRepository {
           token: result.token ?? '',
         ),
       );
-    } else {}
+    } else {
+      debugPrint('### ERROR ### : $result');
+    }
   }
 }

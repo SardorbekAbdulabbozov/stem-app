@@ -1,7 +1,11 @@
+// ignore_for_file: avoid_function_literals_in_foreach_calls
+
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:team_project/src/core/controller/base_controller.dart';
-import 'package:team_project/src/data/models/subject_model.dart';
 import 'package:team_project/src/data/models/suggested_topic_model.dart';
+import 'package:team_project/src/data/network_models/all_subjects_response.dart';
+import 'package:team_project/src/presentation/home/controller/home_controller.dart';
 
 class MyLearningController extends BaseController {
   List<Color> colors = [
@@ -15,10 +19,21 @@ class MyLearningController extends BaseController {
     Colors.brown,
   ];
 
-  List<SubjectModel> mySubjects = [
-    SubjectModel(title: 'Astronomy', numberOfTopics: 14, image: 'astronomy'),
-    SubjectModel(title: 'Biology', numberOfTopics: 20, image: 'biology'),
-  ];
+  List<AllSubjectsResponse> mySubjects = [];
+
+  @override
+  void onReady() {
+    super.onReady();
+    List<String> mySubjectNames = localSource.getEnrolledSubjects();
+    var homeController = Get.find<HomeController>();
+    mySubjectNames.forEach((subject) {
+      AllSubjectsResponse subj = homeController.subjects
+              ?.firstWhere((element) => element.subjectNameUz == subject) ??
+          AllSubjectsResponse();
+      mySubjects.add(subj);
+    });
+    update();
+  }
 
   List<SuggestedTopic> suggestedTopics = [
     SuggestedTopic(

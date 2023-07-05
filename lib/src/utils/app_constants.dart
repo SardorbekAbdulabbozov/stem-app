@@ -15,7 +15,9 @@ class AppConstants {
     SubjectModel(title: 'Physics', numberOfTopics: 1, image: 'physics'),
   ];
 
-  static const baseURL = 'https://stem-production.up.railway.app/api/v1/';
+  // static const baseURL = 'https://stem-production.up.railway.app/api/v1/';
+  // static const baseURL = 'http://jabborovegamberdi.jprq.live:80/api/v1/';
+  static const baseURL = 'http://isnodir.jprq.live:80/api/v1/';
 
   static const hasProfile = 'hasProfile';
   static const firstName = 'firstName';
@@ -23,5 +25,7 @@ class AppConstants {
   static const username = 'username';
   static const token = 'token';
   static const introStatus = 'introStatus';
+  static const userCoin = 'userCoin';
+  static const enrolledSubjects = 'enrolledSubjects';
 }
 

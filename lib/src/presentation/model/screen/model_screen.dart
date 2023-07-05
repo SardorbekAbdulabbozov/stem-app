@@ -19,7 +19,8 @@ class ModelScreen extends StatelessWidget {
               height: Get.height - 56,
               width: Get.width,
               child: ModelViewer(
-                src: 'assets/3d/Human_eye.glb',
+                src:
+                    'assets/3d/${Get.arguments is String ? (Get.arguments as String) : 'Human_eye'}.glb',
                 ar: true,
                 autoPlay: true,
                 autoRotate: true,

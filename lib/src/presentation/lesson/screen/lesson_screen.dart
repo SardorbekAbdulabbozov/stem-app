@@ -21,8 +21,6 @@ class LessonScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetBuilder<LessonController>(
       builder: (ctr) {
-        String text =
-            'Choroid. Layer containing blood vessels that lines the back of the eye and is located between the retina (the inner light-sensitive layer) and the sclera (the outer white eye wall). Ciliary Body. Structure containing muscle and is located behind the iris, which focuses the lens. ';
         return Scaffold(
           key: scaffoldState,
           appBar: AppBar(
@@ -39,7 +37,7 @@ class LessonScreen extends StatelessWidget {
                 padding: const EdgeInsets.only(right: 4),
                 child: IconButton(
                   onPressed: () {
-                    Get.toNamed(AppRoutes.model);
+                    Get.toNamed(AppRoutes.model,arguments: ctr.model);
                   },
                   icon: SvgPicture.asset(
                     'assets/svg/ic_3d.svg',
@@ -52,7 +50,10 @@ class LessonScreen extends StatelessWidget {
             ],
             centerTitle: true,
             title: Text(
-              Get.arguments is String ? (Get.arguments as String) : "",
+              (Get.arguments is List<String>
+                      ? (Get.arguments as List<String>)
+                      : [])
+                  .first,
               style:
                   AppTextStyles.appBarTextStyle.copyWith(color: Colors.white),
             ),
@@ -71,90 +72,69 @@ class LessonScreen extends StatelessWidget {
                           Padding(
                             padding: const EdgeInsets.only(bottom: 8),
                             child: Text(
-                              'Introduction',
+                              ctr.title,
                               style: AppTextStyles.lessonTextStyle.copyWith(
                                   fontWeight: FontWeight.w700, fontSize: 20),
                               textAlign: TextAlign.justify,
                             ),
                           ),
                           Text(
-                            text * 3,
+                            ctr.fullInfo,
                             style: AppTextStyles.lessonTextStyle,
                             textAlign: TextAlign.justify,
                           ),
                         ],
                       ),
                     ),
-                    Padding(
-                      padding: const EdgeInsets.all(16),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Padding(
-                            padding: const EdgeInsets.only(bottom: 8),
-                            child: Text(
-                              'Human Eye',
-                              style: AppTextStyles.lessonTextStyle.copyWith(
-                                  fontWeight: FontWeight.w700, fontSize: 20),
-                              textAlign: TextAlign.justify,
-                            ),
-                          ),
-                          Text(
-                            text * 4,
-                            style: AppTextStyles.lessonTextStyle,
-                            textAlign: TextAlign.justify,
-                          ),
-                        ],
-                      ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.all(16),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Padding(
-                            padding: const EdgeInsets.only(bottom: 8),
-                            child: Text(
-                              'Figure 1'.tr,
-                              style: AppTextStyles.lessonTextStyle.copyWith(
-                                  fontWeight: FontWeight.w700, fontSize: 20),
-                            ),
-                          ),
-                          CachedNetworkImage(
-                            imageUrl:
-                                'https://www.centralfloridaretina.com/wp-content/uploads/eye-anatomy-infographic-1.jpg',
-                          ),
-                        ],
-                      ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.all(16),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            'Video'.tr,
-                            style: AppTextStyles.lessonTextStyle.copyWith(
-                              fontWeight: FontWeight.w700,
-                              fontSize: 20,
-                            ),
-                          ),
-                          Padding(
-                            padding: const EdgeInsets.only(top: 8),
-                            child: YoutubePlayer(
-                              width: Get.width,
-                              controller: ctr.controller,
-                              aspectRatio: 16 / 9,
-                              actionsPadding: const EdgeInsets.all(16),
-                              progressColors: const ProgressBarColors(
-                                playedColor: AppColors.assets,
-                                handleColor: AppColors.assets,
+                    if (ctr.image.isNotEmpty)
+                      Padding(
+                        padding: const EdgeInsets.all(16),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Padding(
+                              padding: const EdgeInsets.only(bottom: 8),
+                              child: Text(
+                                'Rasm 1'.tr,
+                                style: AppTextStyles.lessonTextStyle.copyWith(
+                                    fontWeight: FontWeight.w700, fontSize: 20),
                               ),
                             ),
-                          ),
-                        ],
+                            CachedNetworkImage(
+                              imageUrl: ctr.image,
+                            ),
+                          ],
+                        ),
                       ),
-                    ),
+                    if (ctr.args[3].isNotEmpty)
+                      Padding(
+                        padding: const EdgeInsets.all(16),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              'Video'.tr,
+                              style: AppTextStyles.lessonTextStyle.copyWith(
+                                fontWeight: FontWeight.w700,
+                                fontSize: 20,
+                              ),
+                            ),
+                            Padding(
+                              padding: const EdgeInsets.only(top: 8),
+                              child: YoutubePlayer(
+                                width: Get.width,
+                                controller: ctr.controller,
+                                aspectRatio: 16 / 9,
+                                actionsPadding: const EdgeInsets.all(16),
+                                progressColors: const ProgressBarColors(
+                                  playedColor: AppColors.assets,
+                                  handleColor: AppColors.assets,
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
                   ],
                 ),
               ),
@@ -168,7 +148,9 @@ class LessonScreen extends StatelessWidget {
                     onPressed: () {
                       scaffoldState.currentState?.showBottomSheet(
                         (context) {
-                          return Chatbot(controller: ctr,);
+                          return Chatbot(
+                            controller: ctr,
+                          );
                         },
                         constraints: BoxConstraints(
                           maxHeight: Get.height - 56,

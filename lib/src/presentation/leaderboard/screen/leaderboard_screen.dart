@@ -11,7 +11,7 @@ class LeaderboardScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetBuilder<LeaderboardController>(
-      builder: (context) {
+      builder: (ctr) {
         double mainViewHeight =
             Get.height - kToolbarHeight - (GetPlatform.isAndroid ? 174 : 202);
         return DefaultTabController(
@@ -32,7 +32,7 @@ class LeaderboardScreen extends StatelessWidget {
                     children: [
                       SvgPicture.asset('assets/svg/ic_coin.svg'),
                       Text(
-                        '350k'.tr,
+                        '${ctr.localSource.getUserCoins()}'.tr,
                         style: AppTextStyles.coinTextStyle,
                       ),
                     ],
@@ -83,14 +83,26 @@ class LeaderboardScreen extends StatelessWidget {
                       ),
                     ),
                   ),
+                  Visibility(
+                    visible: false,
+                    child: SizedBox(
+                      height: mainViewHeight,
+                      child: TabBarView(
+                        physics: const NeverScrollableScrollPhysics(),
+                        children: [
+                          LeaderboardBody(viewHeight: mainViewHeight),
+                          LeaderboardBody(viewHeight: mainViewHeight),
+                        ],
+                      ),
+                    ),
+                  ),
                   SizedBox(
                     height: mainViewHeight,
-                    child: TabBarView(
-                      physics: const NeverScrollableScrollPhysics(),
-                      children: [
-                        LeaderboardBody(viewHeight: mainViewHeight),
-                        LeaderboardBody(viewHeight: mainViewHeight),
-                      ],
+                    child: Center(
+                      child: Text(
+                        'Reytingga kirish hali boshlanmadi!',
+                        style: AppTextStyles.chatbotMessageTextStyle.copyWith(color: Colors.black),
+                      ),
                     ),
                   ),
                 ],
@@ -173,7 +185,7 @@ class LeaderboardBody extends StatelessWidget {
                         ),
                         if (i == 0)
                           Image.asset(
-                            'assets/jpg/ic_first_ranking.png',
+                            'assets/jpg/first_ranking.png',
                             scale: 5,
                           )
                       ],

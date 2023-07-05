@@ -58,6 +58,28 @@ class LocalSource {
     await _localSource.remove(AppConstants.firstName);
     await _localSource.remove(AppConstants.lastName);
     await _localSource.remove(AppConstants.username);
-    // await _localSource.remove(AppConstants.introStatus);
+    await _localSource.remove(AppConstants.userCoin);
+    await _localSource.remove(AppConstants.enrolledSubjects);
+  }
+
+  Future<void> setUserCoin(int coin) async {
+    await _localSource.write(AppConstants.userCoin, coin);
+  }
+
+  int getUserCoins() {
+    return _localSource.read<int>(AppConstants.userCoin) ?? 0;
+  }
+
+  Future<void> enrollToSubject(String name) async {
+    List<String> enrolledSubjects = getEnrolledSubjects();
+    enrolledSubjects.add(name);
+    await _localSource.write(
+        AppConstants.enrolledSubjects, enrolledSubjects.join('_'));
+  }
+
+  List<String> getEnrolledSubjects() {
+    String data =
+        _localSource.read<String>(AppConstants.enrolledSubjects) ?? '';
+    return data.isEmpty ? [] : data.split('_');
   }
 }

@@ -62,8 +62,13 @@ abstract class ApiClient {
   @POST("auth/authenticate")
   Future<AuthResponse> login(@Body() LoginRequest request);
 
-  @GET("subject")
-  Future<AllSubjectsResponse> getAllSubjects();
+  @GET("subject/list")
+  Future<List<AllSubjectsResponse>> getAllSubjects(@Header('Authorization') token);
+
+  // @GET("subject/topic/{id}")
+  // Future<> getSubjectTopics(@Path('id') id);
+  // @POST("user/taken-subject")
+  // Future<List<AllSubjectsResponse>> enrollToSubject(@Header('Authorization') token);
 }
 /*flutter pub run build_runner build --delete-conflicting-outputs*/
 /*flutter pub run build_runner watch --delete-conflicting-outputs*/

@@ -19,7 +19,8 @@ class ProfileController extends BaseController {
   void onInit() {
     super.onInit();
     user = localSource.getUserDetails();
-    debugPrint('#### ${user.token}');
+    List<String> enrolledCourses = localSource.getEnrolledSubjects();
+    debugPrint('#### ${enrolledCourses.length}');
   }
 }
 
